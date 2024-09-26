@@ -4,12 +4,16 @@ import morgan from "morgan";
 import AuthRouter from "./Src/routes/auth.js"
 import { globalMiddleware } from "./Src/middlewares/auth.js";
 import { connectDb } from "./Src/config/db config.js";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
 
 app.use(express.json()); // For parsing req body
+ 
+// Enable CORS
+app.use(cors())
 
 // middlewares
 app.use(morgan("dev"));
